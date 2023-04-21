@@ -40,8 +40,8 @@ Georgeyoo: Provided starter code
 
 ## Deployed Program
 
-![Base Planner Website]()
+![Base Planner Website](./assets/images/img1.png)
 
 
-![Time Blocks]()
+![Time Blocks](./assets/images/img2.png)
 

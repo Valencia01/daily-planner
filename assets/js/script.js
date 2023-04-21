@@ -71,6 +71,7 @@ $(document).ready(function () {
     var theDay = dayjs();
     var theHour = theDay.format('H');
 
+
     //These are all the if statements to see weather that hour is in the past present or future
     if(theHour == hour9 ) {
       nineClass.classList.add('present');
@@ -166,7 +167,7 @@ $(document).ready(function () {
     
   }
 
-
+  //Each of these functions save the user input to local storage then display it the same section
   function eventText9(){
     var inputText9 = document.querySelector("#userInput9").value;
     if(inputText9 !== ""){
