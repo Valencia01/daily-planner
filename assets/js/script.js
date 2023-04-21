@@ -1,9 +1,9 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
 
 $(document).ready(function () {
 
+  currentHour();
+
+  //These are all the event listeners for each section button
   document.getElementById("save9").addEventListener("click", eventText9)
   var nine = document.getElementById("userInput9");
   nine.innerText = localStorage.getItem("input9");
@@ -41,7 +41,130 @@ $(document).ready(function () {
   seventeen.innerText = localStorage.getItem("input17");
 
 
+  //This is the date at the top
   $('#currentDay').text(moment().format("dddd, MMMM Do"));
+
+  //This function assigns a number to each hour and depending if it matches the current hour the colors will change accordingly
+  function currentHour() {
+    //This recieves all the div elements to be able to change them
+    var nineClass = document.getElementById("hour-9");
+    var tenClass = document.getElementById("hour-10");
+    var elevenClass = document.getElementById("hour-11");
+    var twelveClass = document.getElementById("hour-12");
+    var thirteenClass = document.getElementById("hour-13");
+    var fourteenClass = document.getElementById("hour-14");
+    var fifteenClass = document.getElementById("hour-15");
+    var sixteenClass = document.getElementById("hour-16");
+    var seventeenClass = document.getElementById("hour-17");
+
+    var hour9 = 9;
+    var hour10 = 10;
+    var hour11 = 11;
+    var hour12 = 12;
+    var hour13 = 13;
+    var hour14 = 14;
+    var hour15 = 15;
+    var hour16 = 16;
+    var hour17 = 17
+
+    //this is the dayjs api and checks the current hour to be able to compare it to all the sections
+    var theDay = dayjs();
+    var theHour = theDay.format('H');
+
+    //These are all the if statements to see weather that hour is in the past present or future
+    if(theHour == hour9 ) {
+      nineClass.classList.add('present');
+    }
+    else if(theHour > hour9) {
+      nineClass.classList.add('past');
+    }
+    else if(theHour < hour) {
+      nineClass.classList.add('future');
+    }
+
+    if(theHour == hour10 ) {
+      tenClass.classList.add('present');
+    }
+    else if(theHour > hour10) {
+      tenClass.classList.add('past');
+    }
+    else if(theHour < hour10) {
+      tenClass.classList.add('future');
+    }
+
+    if(theHour == hour11 ) {
+      elevenClass.classList.add('present');
+    }
+    else if(theHour > hour11) {
+      elevenClass.classList.add('past');
+    }
+    else if(theHour < hour11) {
+      elevenClass.classList.add('future');
+    }
+
+    if(theHour == hour12 ) {
+      twelveClass.classList.add('present');
+    }
+    else if(theHour > hour12) {
+      twelveClass.classList.add('past');
+    }
+    else if(theHour < hour12) {
+      twelveClass.classList.add('future');
+    }
+
+    if(theHour == hour13 ) {
+      thirteenClass.classList.add('present');
+    }
+    else if(theHour > hour13) {
+      thirteenClass.classList.add('past');
+    }
+    else if(theHour < hour13) {
+      thirteenClass.classList.add('future');
+    }
+
+    if(theHour == hour14 ) {
+      fourteenClass.classList.add('present');
+    }
+    else if(theHour > hour14) {
+      fourteenClass.classList.add('past');
+    }
+    else if(theHour < hour14) {
+      fourteenClass.classList.add('future');
+    }
+
+    if(theHour == hour15 ) {
+      fifteenClass.classList.add('present');
+    }
+    else if(theHour > hour15) {
+      fifteenClass.classList.add('past');
+    }
+    else if(theHour < hour15) {
+      fifteenClass.classList.add('future');
+    }
+
+    if(theHour == hour16 ) {
+      sixteenClass.classList.add('present');
+    }
+    else if(theHour > hour16) {
+      sixteenClass.classList.add('past');
+    }
+    else if(theHour < hour16) {
+      sixteenClass.classList.add('future');
+    }
+
+    if(theHour == hour17 ) {
+      seventeenClass.classList.add('present');
+    }
+    else if(theHour > hour17) {
+      seventeenClass.classList.add('past');
+    }
+    else if(theHour < hour17) {
+      seventeenClass.classList.add('future');
+    }
+    
+
+    
+  }
 
 
   function eventText9(){
@@ -125,23 +248,4 @@ $(document).ready(function () {
 
   }
   
-
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
 });
